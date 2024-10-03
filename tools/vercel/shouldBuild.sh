@@ -10,7 +10,7 @@ if [[ "$VERCEL_ENV" == "production" ]]; then
 else
   BRANCH_NAME=$VERCEL_GIT_COMMIT_REF
 
-  if [[ "$BRANCH_NAME" == "main" ]]; then
+  if [[ "$BRANCH_NAME" == "main" || "$BRANCH_NAME" == "staging" ]]; then
     npx nx-ignore $APP
     exit $? # Exit with the same status as NX Ignore
   else
