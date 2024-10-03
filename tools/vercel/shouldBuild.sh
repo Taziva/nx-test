@@ -8,8 +8,9 @@ if [[ "$VERCEL_ENV" == "production" ]]; then
   npx nx-ignore $APP
   exit $? # Exit with the same status as NX Ignore
 else
-  BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-  if [[ "$BRANCH_NAME" == "main" ]]; then
+  BRANCH_NAME=$VERCEL_GIT_COMMIT_REF
+
+  if [[ "$BRANCH_NAME" == "main" || "$BRANCH_NAME" == "staging" ]]; then
     npx nx-ignore $APP
     exit $? # Exit with the same status as NX Ignore
   else
