@@ -19,6 +19,8 @@ else
   echo
   echo "**** Running post-commit current hook from branch $SHOW_CURRENT_BRANCH"
   echo
+  echo "**** Running post-commit VERCEL_GIT_COMMIT_REF hook from branch $VERCEL_GIT_COMMIT_REF"
+  echo
 
   if [[ "$BRANCH_NAME" == "main" ]]; then
     npx nx-ignore $APP
